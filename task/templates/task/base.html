@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>{% block title %}{%endblock %}</title>
+</head>
+<body>
+{% block content %}
+{% endblock %}
+
+    <script>
+        let slideIndex = 1;
+showSlides(slideIndex);
+
+// Next/previous controls
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+// Thumbnail image controls
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+}
+    </script>
+   <!-- footer -->
+   <footer class="bg-gray-900 text-gray-400">
+    <div class="container mx-auto py-8 px-4 sm:px-6 lg:px-8">
+      <div class="md:flex md:items-center md:justify-between">
+        <div class="flex justify-center md:justify-start">
+          <a href="#" class="text-2xl font-semibold text-gray-100 hover:text-teal-400 mr-6">Privacy</a>
+          <a href="#" class="text-2xl font-semibold text-gray-100 hover:text-teal-400 mr-6">About Us</a>
+          <a href="#" class="text-2xl font-semibold text-gray-100 hover:text-teal-400 mr-6">Services</a>
+          <a href="#" class="text-2xl font-semibold text-gray-100 hover:text-teal-400">Contact Us</a>
+        </div>
+        <div class="mt-8 md:mt-0">
+          <p class="text-gray-400 text-center md:text-left">&copy; <span class="demo"></span> Errandpal Services. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+<script src="{% static 'js/main.js' %}"></script>
+  
+</body>
+</html>

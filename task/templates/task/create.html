@@ -1,0 +1,20 @@
+{% extends 'task/base.html' %}
+{% block content %}
+<div class="m-10 px-6 py-12 bg-gray-100 rounded-xl">
+   <div class="w-full m-6 flex flex-row items-center justify-center ">
+    <img src="/media/list.svg" class="h-24 w-24 bg-white rounded-xl">
+    <h2 class="font-bold text-center text-emerald-600 text-4xl md:text-6xl">Add items to be delivered</h2>
+   </div>
+  <div class="flex flex-row justify-center items-center">
+
+  
+    <a href="{% url 'task:form' %}" class="text-lg px-6 py-3  m-4 bg-teal-500 text-white font-semibold rounded-xl hover:bg-teal-700">
+        <span><img src="/media/add.svg" class="w-6 h-6 bg-white rounded-xl "></span> Create</a>
+
+ 
+    <a href="{% url 'task:index' %}" class="text-lg bg-red-500 rounded-xl px-6 py-3 font-semibold text-white hover:bg-red-700">
+        <span class=""><img src="/media/close.svg" class="w-6 h-6 bg-white rounded-xl"></span> Cancel</a>
+
+  </div>
+</div>
+{% endblock %}

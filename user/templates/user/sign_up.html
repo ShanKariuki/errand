@@ -1,0 +1,38 @@
+{% extends 'task/base.html'%}
+
+{% block content %}
+<div class="m-20 mx-auto px-6 py-12 bg-gray-100 rounded-xl w-1/4">
+    <h2 class="mb-4 text-4xl font-py bold text-gray-800 text-center">Sign Up</h2>
+    <form action="" method="post">
+        {% csrf_token %}
+        {{form.non_field_errors }}
+        <div class="mb-3">
+            <label for="" class="inline-block">Username</label><br>
+            {{form.username}}
+        </div>
+        <div class="mb-3">
+            <label for="" class="inline-block">Email</label><br>
+            {{form.email}}
+        </div>
+        <div class="mb-3">
+            <label for="" class="inline-block">password</label><br>
+            {{form.password1}}
+        </div>
+        <div class="mb-3">
+            <label for="" class="inline-block">Repeat password</label><br>
+            {{form.password2}}
+        </div>
+        {% if form.errors or form.non_field_errors %}
+        <div class="mb-3 p-6 bg-red-100 rounded-xl">
+            {% for field in form %}
+            {{field.errors}}
+               {% endfor %}
+               {{ form.non_filed_errors }}
+        </div>
+        {% endif %}
+        <input type="submit" value="Sign Up" class="mt-5 w-full px-4 py-2 rounded-xl  text-lg font-semibold bg-teal-500 hover:bg-teal-800">
+    </form>
+    <p class="mt-3 py-2 px-2 mx-auto">Already have an account ?<a href="{% url 'user:login' %}" class="text-lg text-teal-500 hover:text-teal-700">Login</a></p>
+</div>
+
+{% endblock %}

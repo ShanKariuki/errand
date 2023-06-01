@@ -1,0 +1,131 @@
+{% extends 'task/base.html' %}
+
+{% block content %}
+      <!-- Navbar -->
+      <nav class="px-6 py-6 bg-gray-100 flex flex-col md:flex-row items-center justify-between">
+        <div class=" flex justify-between items-center text-xl text-500-dark font-bold hover:text-500-dark">
+<div class="">
+  <img src="/media/delivery.png" alt="" class="hover:bg-green-500 rounded-xl">
+</div>
+         <p class="text-4xl hover:text-green-500"> Errandpal</p>
+        </div>
+        <ul class="flex space-x-2">
+          {% if request.user.is_authenticated %}
+          <li class=""><a href="{% url 'task:task' %}" class=" px-4 py-2 text-lg text-white font-semibold rounded-xl bg-teal-500 hover:bg-teal-700">Services</a></li>
+          <li class=""><a href="{% url 'dash:index' %}" class="px-4 py-2 rounded-xl font-semibold text-lg text-white bg-yellow-500 hover:bg-yellow-700">dashboard</a></li>
+          <li class=""><a href="{% url 'user:logout' %}" class="px-4 py-2 rounded-xl font-semibold text-lg text-white bg-red-500 hover:bg-red-700">Logout</a></li>
+
+
+          {% else %}
+          <li class=""><a href="{% url 'user:login' %}" class="bg-teal-500 text-lg font-semibold px-4 py-2 text-white rounded-xl hover:bg-teal-700">Login</a></li>
+          <li class=""><a href="{% url 'user:register' %}" class=" px-4 py-2 text-lg text-white font-semibold bg-teal-500 rounded-xl hover:bg-teal-700">Signup</a></li>
+           {% endif %}
+        </ul>
+
+      </nav>
+      <!-- header -->
+      <div class="flex flex-col md:flex-row justify-between items-center bg-gray-100 m-10 p-10 rounded-xl ">
+          <img src="/media/errand1.jpg" alt="" class=" object-cover w-full object-center rounded-lg">
+          <div class=" w-full bg-white rounded-lg p-16  md:w-full">
+            <h2 class="text-6xl md:text-8xl text-teal-800 font-bold text-center">BUSY ?</h2>
+            <h4 class="text-3xl font-semibold text-500-dark  text-center">Let someone run your errands</h4>
+          </div>
+      </div>
+
+      <!-- About -->
+      <div class="m-10 mt-4 rounded-lg bg-gray-100 min-h-screen">
+        <div class="container mx-auto p-8">
+          <h1 class="text-4xl font-bold text-teal-800 mb-8">About Us</h1>
+          <div class="flex flex-col md:flex-row">
+            <div class="md:w-1/2 p-4">
+              <img src="/media/delivery.png" alt="About Us" class=" rounded-lg mb-4">
+              <p class="text-gray-700 leading-loose">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean quis bibendum turpis. Morbi euismod est quis libero suscipit, ac malesuada ante facilisis. Quisque vel enim vel nulla varius lacinia. Phasellus blandit commodo augue, vel lobortis orci lacinia et. Curabitur porta velit ac tortor bibendum, vel feugiat purus elementum.</p>
+            </div>
+            <div class="md:w-1/2 p-4">
+              <h2 class="text-2xl font-bold text-teal-800 mb-4">Our Mission</h2>
+              <p class="text-gray-700 leading-loose">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean quis bibendum turpis. Morbi euismod est quis libero suscipit, ac malesuada ante facilisis. Quisque vel enim vel nulla varius lacinia. Phasellus blandit commodo augue, vel lobortis orci lacinia et. Curabitur porta velit ac tortor bibendum, vel feugiat purus elementum.</p>
+              <h2 class="text-2xl font-bold text-teal-800 mb-4">Our Vision</h2>
+              <p class="text-gray-700 leading-loose">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean quis bibendum turpis. Morbi euismod est quis libero suscipit, ac malesuada ante facilisis. Quisque vel enim vel nulla varius lacinia. Phasellus blandit commodo augue, vel lobortis orci lacinia et. Curabitur porta velit ac tortor bibendum, vel feugiat purus elementum.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Slideshow container -->
+      <div class=" m-12 py-3 px-6 rounded-lg bg-gray-100 ">
+        <div class="slideshow-container">
+        
+          <!-- Full-width images with number and caption text -->
+          <div class="mySlides fade">
+            
+            <img src="/media/pic1.jpg" class="object-cover  w-52 h-96 w-full object-center rounded-lg" >
+            <div class="text  text-2xl text-gray font-bold">Fresh vegetables</div>
+          </div>
+        
+          <div class="mySlides fade">
+            
+            <img src="/media/pic2.jpg" class="object-cover  w-52 h-96 w-full object-center rounded-lg" >
+            <div class="text text-2xl text-gray font-bold">Happy clients</div>
+          </div>
+        
+          <div class="mySlides fade">
+            <img src="/media/pic3.jpg" class="object-cover  w-52 h-96 w-full object-center rounded-lg" >
+            <div class="text text-2xl text-gray font-bold">Timely delivery</div>
+          </div>
+          <div class="mySlides fade">
+            
+            <img src="/media/pic4.jpg" class="object-cover  w-52 h-96 w-full object-center rounded-lg" >
+            <div class="text text-2xl text-gray font-bold">Dedicated Services</div>
+          </div>
+        
+          <!-- Next and previous buttons -->
+          <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+          <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+        <br>
+        
+        <!-- The dots/circles -->
+        <div style="text-align:center">
+          <span class="dot" onclick="currentSlide(1)"></span>
+          <span class="dot" onclick="currentSlide(2)"></span>
+          <span class="dot" onclick="currentSlide(3)"></span>
+        </div>
+        </div>
+      
+      
+      <!-- happy Clients -->
+      <div class="relative  ">
+        <p class="text-2xl text-500-dark text-center font-bold">What clients' say about our services</p>
+        <!-- Slides container -->
+        <div class="carousel  m-10 w-full">
+          <!-- Slide 1 -->
+          <div class="carousel-item w-1/2 shadow-md mb-4 flex justify-center items-center bg-green-200 px-8 py-16 rounded-xl  mx-auto Slides">
+            <img src="/media/client1.jpg" alt="Slide 1" class="w-24 h-24 rounded-full">
+            <div class="carousel-caption">
+              <p class="text-lg font-bold mb-2">"The Errandpal App is amazing! It has made my life so much easier."</p>
+              <p class="text-gray-600">-Jane S.</p>
+            </div>
+          </div>
+          <!-- Slide 2 -->
+          <div class="carousel-item shadow-md w-1/2  mb-4 flex justify-center items-center bg-blue-200 px-8 py-16 rounded-xl  mx-auto Slides">
+            <img src="/media/client2.jpg" alt="Slide 2" class="w-24 h-24 rounded-full ">
+            <div class="carousel-caption">
+              <p class="text-lg font-bold mb-2">"I never thought I needed an errands service until I tried Errandpal App. Now I can't live without it."</p>
+              <p class="text-gray-600">-John D.  </p>
+            </div>
+          </div>
+          <!-- Slide 3 -->
+          <div class="carousel-item shadow-md w-1/2 mb-4 flex justify-center items-center bg-yellow-200 px-8 py-16 rounded-xl  mx-auto Slides">
+            <img src="/media/client3.jpg" alt="Slide 3" class="w-24 h-24 rounded-full">
+            <div class="carousel-caption">
+              <p class="text-lg font-bold mb-2">"The Errandpal App team is always prompt and professional. I highly recommend them."</p>
+              <p class="text-gray-600">- Mark T.</p>
+            </div>
+          </div>
+        </div>
+   
+      </div>  
+      
+   
+
+{% endblock %}

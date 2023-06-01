@@ -1,0 +1,27 @@
+{% extends 'task/base.html' %}
+{% block content %}
+<div class="bg-gray-900 w-full px-4 py-3 ">
+    <div class="flex flex-row items-center justify-center   space-x-4">
+        <li class=""><a href="{% url 'task:task' %}" class=" px-4 py-2 text-lg text-white font-semibold rounded-xl bg-teal-500 hover:bg-teal-700">Services</a></li>
+        <li class=""><a href="{% url 'user:logout' %}" class="px-4 py-2 rounded-xl font-semibold text-lg text-white bg-red-500 hover:bg-red-700">Logout</a></li>
+    </div>
+</div>
+<div class="mt-6 px-6 py-12 bg-gray-100 rounded-xl">
+    <h2 class="text-4xl text-center font-semibold text-teal-400 hover:text-teal-700">My List of Delivery</h2>
+     
+      <div class="grid grid-cols-3 gap-2 sm:grid-cols-3">
+        {% for task in tasks %}
+        <div class="px-6 py-12">
+          <a href="" class="">
+            <div class="px-6 py-12 bg-white rounded-b-xl ">
+              <h5 class="text-lg "><strong>{{ task.title }}</strong></h5>
+              <p class="mb-6 text-gray-500">{{ task.description }}</p>
+              <a href="" class=" px-4 py-2 bg-teal-500 flex justify-center items-center font-semibold text-white rounded-xl hover:bg-teal-700">Update task</a>
+            </div>
+          </a>
+        </div>
+            {% endfor %}
+          </div>
+      </div>
+
+{% endblock %}
